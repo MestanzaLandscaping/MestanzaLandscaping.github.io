@@ -1,32 +1,19 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwrUrJhd5cTEbT6qhUReaYKmwt4MemKLhcccHytWaZPhMznxKXn-Sqt15rEOTtCs_Q-/exec'
-const form = document.forms['submit-to-google-sheet']
-const msg = document.getElementById("msg");
-
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  
-  msg.innerHTML = "Sending...";
-
-  fetch(scriptURL, { 
-    method: 'POST', 
-    body: new FormData(form)
-  })
-  .then(response => response.json()) 
-  .then(data => {
-    msg.innerHTML = "Message sent successfully";
-    setTimeout(function() {
-        msg.innerHTML = "";
-    }, 5000);
-    form.reset();
-  })
-  .catch(error => {
-    console.error('Error!', error.message);
-    msg.innerHTML = "Failed to send the message. Please try again.";
-    setTimeout(function() {
-        msg.innerHTML = "";
-    }, 5000);
-  });
-});
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx7NsjFMSC5_k3OIc36jxDJPo_GjyFpMvfeCOOSETp7M7dPQkwxDuYJ_c1Fq0qvtNhKHA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg");
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                }, 5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
 
 
 window.addEventListener('DOMContentLoaded', event => {
