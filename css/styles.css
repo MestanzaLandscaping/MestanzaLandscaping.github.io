@@ -11037,6 +11037,14 @@ header.masthead .masthead-heading {
   margin-left: auto;
   margin-right: auto;
 }
+
+#portfolio .portfolio-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
 #portfolio .portfolio-item .portfolio-link {
   position: relative;
   display: block;
